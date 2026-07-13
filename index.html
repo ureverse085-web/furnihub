@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simply Furniture | Premium Minimal Luxury</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" onclick="navigateTo('home')">
+                simply<span>furniture</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="nav-link active" onclick="navigateTo('home')">Home</a></li>
+                <li><a href="#" class="nav-link" onclick="navigateTo('shop')">Shop</a></li>
+                <li><a href="#" class="nav-link" onclick="navigateTo('about')">About</a></li>
+                <li><a href="#" class="nav-link" onclick="navigateTo('contact')">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-icon-btn" onclick="navigateTo('search')" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="nav-icon-btn" onclick="navigateTo('wishlist')" aria-label="Wishlist">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="badge" id="wishlistBadge">0</span>
+                </button>
+                <button class="nav-icon-btn" onclick="navigateTo('cart')" aria-label="Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="badge" id="cartBadge">0</span>
+                </button>
+                <button class="nav-icon-btn" onclick="navigateTo('profile')" aria-label="Profile"><i class="fa-solid fa-user"></i></button>
+                <button class="nav-icon-btn theme-toggle" id="themeToggle" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="nav-icon-btn hamburger" id="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="mainContent">
+
+        <section id="view-home" class="page-view active">
+            <div class="hero-slider">
+                <div class="slide active" style="background: linear-gradient(rgba(61,43,31,0.4), rgba(61,43,31,0.2)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
+                    <div class="hero-content fade-up">
+                        <h1>simply<span>furniture</span></h1>
+                        <p>Designed for a beautiful life. Experience the ultimate intersection of minimal design and premium comfort.</p>
+                        <div class="hero-btns">
+                            <button class="btn btn-primary" onclick="navigateTo('shop')">Shop Now</button>
+                            <button class="btn btn-secondary" onclick="navigateTo('about')">Explore More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background: linear-gradient(rgba(61,43,31,0.4), rgba(61,43,31,0.2)), url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
+                    <div class="hero-content">
+                        <h1>Modern Comfort</h1>
+                        <p>Elevate your architecture with curated design elements from our new simple&soft collection.</p>
+                        <div class="hero-btns">
+                            <button class="btn btn-primary" onclick="navigateTo('shop')">View Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="setSlide(0)"></span>
+                    <span class="dot" onclick="setSlide(1)"></span>
+                </div>
+            </div>
+
+            <section class="section categories-section">
+                <div class="container">
+                    <h2 class="section-title text-center">Meet simple&soft collection</h2>
+                    <div class="category-grid">
+                        <div class="category-card" onclick="filterByCategory('Sofas')">
+                            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofas" loading="lazy">
+                            <div class="category-overlay">
+                                <h3>Sofas</h3>
+                                <button class="btn btn-sm">Explore</button>
+                            </div>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('Chairs')">
+                            <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=600&q=80" alt="Chairs" loading="lazy">
+                            <div class="category-overlay">
+                                <h3>Chairs</h3>
+                                <button class="btn btn-sm">Explore</button>
+                            </div>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('Tables')">
+                            <img src="https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=600&q=80" alt="Tables" loading="lazy">
+                            <div class="category-overlay">
+                                <h3>Tables</h3>
+                                <button class="btn btn-sm">Explore</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section featured-section">
+                <div class="container">
+                    <div class="section-header-row">
+                        <h2 class="section-title">Fresh shipment</h2>
+                        <button class="btn btn-secondary" onclick="navigateTo('shop')">View All</button>
+                    </div>
+                    <div class="product-grid" id="featuredProductGrid">
+                        </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="view-shop" class="page-view">
+            <div class="shop-header">
+                <div class="container">
+                    <h1>Explore Our Collections</h1>
+                    <p>Refined options tailored for modern, luxurious spaces.</p>
+                </div>
+            </div>
+            <div class="container shop-layout">
+                <aside class="shop-sidebar">
+                    <div class="filter-group">
+                        <h3>Categories</h3>
+                        <ul class="filter-list" id="categoryFilterList">
+                            </ul>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <input type="range" id="priceRange" min="0" max="5000" step="50" value="5000">
+                        <div class="price-labels">
+                            <span>$0</span>
+                            <span id="priceRangeValue">$5000</span>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Sort By</h3>
+                        <select id="sortBySelect" class="form-control">
+                            <option value="default">Default Sorting</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary w-100" onclick="resetFilters()">Clear Filters</button>
+                </aside>
+                
+                <div class="shop-content">
+                    <div class="product-grid" id="shopProductGrid">
+                        </div>
+                    <div class="pagination" id="shopPagination">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-product-detail" class="page-view">
+            <div class="container section">
+                <button class="btn btn-secondary mb-4" onclick="navigateTo('shop')"><i class="fa-solid fa-arrow-left"></i> Back to Shop</button>
+                <div class="product-detail-wrapper" id="productDetailContainer">
+                    </div>
+                <div class="related-products-section mt-5">
+                    <h2>Related Products</h2>
+                    <div class="product-grid" id="relatedProductsGrid"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-cart" class="page-view">
+            <div class="container section">
+                <h1 class="mb-4">Shopping Cart</h1>
+                <div class="cart-layout" id="cartLayoutContainer">
+                    </div>
+            </div>
+        </section>
+
+        <section id="view-wishlist" class="page-view">
+            <div class="container section">
+                <h1 class="mb-4">Your Wishlist</h1>
+                <div class="product-grid" id="wishlistGrid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="view-search" class="page-view">
+            <div class="container section">
+                <div class="search-box-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search premium furniture..." autocomplete="off">
+                    <i class="fa-solid fa-magnifying-glass search-box-icon"></i>
+                </div>
+                <div class="search-meta mt-3">
+                    <div id="searchSuggestions" class="search-suggestions">
+                        <strong>Trending Searches:</strong>
+                        <span onclick="triggerSearch('Sofa')">Sofa</span>, 
+                        <span onclick="triggerSearch('Velvet')">Velvet</span>, 
+                        <span onclick="triggerSearch('Walnut')">Walnut</span>, 
+                        <span onclick="triggerSearch('Minimal')">Minimal</span>
+                    </div>
+                </div>
+                <div class="product-grid mt-5" id="searchResultsGrid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="view-profile" class="page-view">
+            <div class="container section user-auth-container">
+                <div id="authWrapper" class="auth-card glass">
+                    </div>
+            </div>
+        </section>
+
+        <section id="view-about" class="page-view">
+            <div class="about-hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
+                <h1>Our Core Aesthetics</h1>
+            </div>
+            <div class="container section">
+                <div class="about-grid">
+                    <div>
+                        <h2>Architectural Simplicity</h2>
+                        <p>Founded with the mission to build minimal, highly resilient architectural forms, Simply Furniture redefines domestic luxury. Every line is studied, every fabric sustainably sourced, and every item crafted to absolute structural perfection.</p>
+                    </div>
+                    <div>
+                        <h2>Precision & Value</h2>
+                        <p>We work in perfect integration with world-class industrial designers to produce premium interior elements without inflating consumer retail costs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-contact" class="page-view">
+            <div class="container section">
+                <h1 class="text-center mb-5">Connect with Us</h1>
+                <div class="contact-grid">
+                    <div class="contact-info glass">
+                        <h3>Direct Channels</h3>
+                        <p><i class="fa-solid fa-location-dot"></i> 742 Evergreen Terrace, Luxury District</p>
+                        <p><i class="fa-solid fa-phone"></i> +1 (555) 019-2831</p>
+                        <p><i class="fa-solid fa-envelope"></i> concierge@simplyfurniture.design</p>
+                        <div class="map-placeholder mt-4">
+                            <i class="fa-solid fa-map-location-dot" style="font-size: 3rem; color: var(--color-primary); margin-bottom: 1rem;"></i>
+                            <p class="m-0 text-muted">Interactive Map System Placeholder</p>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper glass">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                            <div class="form-group">
+                                <label for="c_name">Full Name</label>
+                                <input type="text" id="c_name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c_email">Email Address</label>
+                                <input type="email" id="c_email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c_msg">Message Details</label>
+                                <textarea id="c_msg" class="form-control" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>simply<span>furniture</span></h2>
+                <p>Architectural execution, functional elegance, minimal modern luxury solutions.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="navigateTo('home')">Home</a></li>
+                    <li><a href="#" onclick="navigateTo('shop')">Shop Products</a></li>
+                    <li><a href="#" onclick="navigateTo('about')">Our Story</a></li>
+                    <li><a href="#" onclick="navigateTo('contact')">Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Premium Collections</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="filterByCategory('Sofas')">Luxury Sofas</a></li>
+                    <li><a href="#" onclick="filterByCategory('Chairs')">Ergonomic Chairs</a></li>
+                    <li><a href="#" onclick="filterByCategory('Tables')">Architectural Tables</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Stay Informed</h3>
+                <p>Subscribe to secure advanced allocations on future limited shipments.</p>
+                <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+                    <input type="email" id="newsEmail" placeholder="your.email@domain.com" required>
+                    <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Simply Furniture Design Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+  </html>
